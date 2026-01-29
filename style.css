@@ -140,7 +140,9 @@ hr {
   background-position: center;
   border-radius: 8px;
   margin-bottom: 2.5rem;
+  min-height: 320px;
 }
+
 
 .hero-overlay {
   background: rgba(250, 250, 250, 0.88);
