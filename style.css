@@ -150,3 +150,61 @@ li {
     font-size: 2rem;
   }
 }
+/* =========================
+   CANVA-STYLE LAYOUT CLASSES
+   ========================= */
+
+/* Page sections */
+.section {
+  margin: 3rem 0;
+}
+
+.section-soft {
+  background-color: #f9fafb;
+  padding: 3rem 1.8rem;
+  border-radius: 16px;
+}
+
+/* Lead paragraph */
+.lead-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* Card base */
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Card grid (used for services/support) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+
+/* Section titles inside cards/sections */
+.section-title {
+  margin-bottom: 1.2rem;
+}
+
+/* Contact card */
+.contact-card {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .section-soft {
+    padding: 2rem 1.2rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
