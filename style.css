@@ -111,3 +111,17 @@ hr {
   margin-bottom: 0.25rem;
 }
 
+/* What I Support – 2-column layout */
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 2rem;
+  margin-top: 0.75rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+}
