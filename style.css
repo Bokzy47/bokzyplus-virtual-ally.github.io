@@ -125,3 +125,11 @@ hr {
     grid-template-columns: 1fr;
   }
 }
+/* Brand divider */
+.brand-divider {
+  border: none;
+  height: 2px;
+  width: 72px;
+  background-color: var(--brand-gold);
+  margin: 2.5rem 0 2rem 0;
+}
