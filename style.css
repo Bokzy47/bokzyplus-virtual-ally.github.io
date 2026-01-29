@@ -208,3 +208,44 @@ li {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   CTA BUTTON (HERO)
+   ========================= */
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.6rem;
+  background-color: var(--brand-gold);
+  color: #1f1f1f;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.hero-cta:hover {
+  background-color: #e6b91f;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SERVICES HERO VARIANT
+   ========================= */
+
+.hero.services-hero {
+  background-image: url("services-banner.png");
+}
+
+/* =========================
+   CARD HOVER EFFECT
+   ========================= */
+
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
