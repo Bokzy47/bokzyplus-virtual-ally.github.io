@@ -95,3 +95,16 @@ hr {
   border-top: 1px solid #e5e7eb;
   margin: 2.5rem 0;
 }
+/* Brand header with logo */
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.brand-header img {
+  height: 48px;
+  width: auto;
+}
+
