@@ -138,9 +138,12 @@ hr {
   background-image: url("hero-banner.png");
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
   margin-bottom: 2.5rem;
-  min-height: 320px;
 }
 
 
