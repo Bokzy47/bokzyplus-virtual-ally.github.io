@@ -25,7 +25,56 @@ body {
 }
 
 /* =========================
-   HERO (STATIC, NO MOTION)
+   TOP RIGHT NAV (LOGO + BUTTONS)
+   ========================= */
+
+.top-right-nav {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  z-index: 10000;
+}
+
+.top-nav-logo {
+  height: 34px;
+}
+
+/* Nav buttons */
+.top-nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-pill {
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  background-color: var(--brand-gold);
+  color: #1f1f1f;
+
+  border: none;
+}
+
+.nav-pill:hover {
+  background-color: #e6b91f;
+}
+
+/* Primary (Services) */
+.nav-pill.primary {
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   HERO (STATIC)
    ========================= */
 
 .hero {
@@ -47,93 +96,6 @@ body {
   transform: none !important;
   transition: none !important;
   background-position: center !important;
-}
-
-/* Remove hero logo entirely */
-.hero-logo {
-  display: none !important;
-}
-
-/* =========================
-   GLOBAL NAV (TOP RIGHT)
-   ========================= */
-
-.hero-cta-nav {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  z-index: 10000;
-}
-
-.nav-logo {
-  height: 34px;
-}
-
-/* =========================
-   HAMBURGER BUTTON (GLOBAL ONLY)
-   ========================= */
-
-.menu-toggle {
-  border: none;
-  background-color: var(--brand-gold);
-  padding: 10px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-}
-
-.menu-toggle span {
-  width: 18px;
-  height: 2px;
-  background: #1f1f1f;
-  position: relative;
-}
-
-.menu-toggle span::before,
-.menu-toggle span::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 2px;
-  background: #1f1f1f;
-  left: 0;
-}
-
-.menu-toggle span::before { top: -6px; }
-.menu-toggle span::after { top: 6px; }
-
-/* Dropdown menu */
-.nav-links {
-  position: absolute;
-  top: 52px;
-  right: 0;
-
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 12px 16px;
-
-  display: none;
-  flex-direction: column;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--brand-dark);
-  font-weight: 500;
-  padding: 6px 0;
-}
-
-.menu-checkbox:checked + .menu-toggle + .nav-links {
-  display: flex;
 }
 
 /* =========================
@@ -179,46 +141,7 @@ body {
 }
 
 /* =========================
-   SECTION CTA BUTTONS (FINAL, SIMPLE)
-   ========================= */
-
-.section-cta-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.cta-button {
-  padding: 10px 20px;
-  border-radius: 999px;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  background-color: #ffffff;
-  color: var(--brand-dark);
-  border: 1px solid rgba(0,0,0,0.18);
-}
-
-.cta-button:hover {
-  background-color: #f4f4f4;
-}
-
-/* Primary button (Services) */
-.cta-button.primary {
-  background-color: var(--brand-gold);
-  border-color: var(--brand-gold);
-  color: #1f1f1f;
-}
-
-.cta-button.primary:hover {
-  background-color: #e6b91f;
-}
-
-/* =========================
-   SCROLL REVEAL (OPTIONAL, SAFE)
+   SCROLL REVEAL
    ========================= */
 
 .reveal {
@@ -241,8 +164,9 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .hero-cta-nav {
+  .top-right-nav {
     top: 16px;
     right: 16px;
+    flex-wrap: wrap;
   }
 }
