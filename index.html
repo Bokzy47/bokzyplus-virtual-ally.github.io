@@ -61,4 +61,52 @@
     <h3 class="section-title">What I Support</h3>
 
     <div class="card-grid">
-      <div c
+      <div class="card reveal">End-to-end transaction coordination</div>
+      <div class="card reveal">Contract-to-close management</div>
+      <div class="card reveal">Document preparation and compliance tracking</div>
+      <div class="card reveal">CRM and operations support</div>
+      <div class="card reveal">Process organization & workflow optimization</div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="section section-soft reveal">
+    <div class="card">
+      <h3 class="section-title">How I Work</h3>
+      <p>
+        I combine attention to detail with proactive communication, ensuring deadlines
+        are met, documents are accurate, and operations run smoothly—whether supporting
+        a single agent, a real estate team, or a growing company.
+      </p>
+      <p class="tagline">
+        Reliable. Proactive. Systems-driven support.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTERACTIONS (UNCHANGED) -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rx = ((y - r.height/2) / (r.height/2)) * -4;
+        const ry = ((x - r.width/2) / (r.width/2)) * 4;
+        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.015)`;
+      });
+      card.addEventListener('mouseleave', () => card.style.transform = '');
+    });
+  </script>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    }, { threshold: 0.15 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+
+</body>
+</html>
