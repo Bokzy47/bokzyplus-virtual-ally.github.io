@@ -132,3 +132,32 @@ body {
 .hero-subtitle * {
   font-weight: 800 !important;
 }
+/* =========================
+   SOCIAL ICONS — BRAND STYLE
+   ========================= */
+.social-links {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links img {
+  width: 22px;
+  height: 22px;
+  color: #1f1f1f; /* uses currentColor from SVG */
+}
+
+.social-links a:hover {
+  background: #e6b91f;
+}
