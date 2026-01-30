@@ -2,7 +2,6 @@
    BOKZY+ BRAND STYLES
    ========================= */
 
-/* Color palette */
 :root {
   --brand-gold: #f4c430;
   --brand-dark: #1f1f1f;
@@ -30,11 +29,9 @@ body {
    TYPOGRAPHY
    ========================= */
 
-h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--brand-brown);
-  margin-bottom: 0.4rem;
+/* REMOVE ONLY THE LARGE HERO HEADLINE */
+.hero h1 {
+  display: none;
 }
 
 h2 {
@@ -61,20 +58,7 @@ p {
 }
 
 /* =========================
-   LISTS
-   ========================= */
-
-ul {
-  margin-left: 1.3rem;
-  margin-bottom: 1.6rem;
-}
-
-li {
-  margin-bottom: 0.55rem;
-}
-
-/* =========================
-   HERO / BANNER (FINAL)
+   HERO / BANNER
    ========================= */
 
 .hero {
@@ -91,19 +75,20 @@ li {
   display: flex;
   align-items: center;
 
-  border-radius: 0;
+  position: relative;
 }
 
+/* REMOVE WHITE RECTANGLE OVERLAY */
 .hero-overlay {
-  background: rgba(250, 250, 250, 0.92);
-  padding: 3rem 2.5rem;
-  border-radius: 14px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 
   max-width: 720px;
   margin: 0 auto;
 }
 
-/* LOCK LOGO SIZE — NEVER SCALE */
+/* KEEP LARGE CIRCULAR BADGE (LEFT) */
 .hero-logo {
   height: 48px;
   max-height: 48px;
@@ -112,22 +97,46 @@ li {
   margin-bottom: 0.75rem;
 }
 
-.hero h1 {
-  font-size: 2.6rem;
-  margin-bottom: 0.5rem;
-}
-
+/* SERVICE LINE IS PRIMARY */
 .hero-subtitle {
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  margin-bottom: 1.2rem;
 }
 
 /* =========================
-   SERVICES HERO VARIANT
+   STICKY TOP NAV
    ========================= */
 
-.hero.services-hero {
-  background-image: url("services-banner.png");
+.top-nav {
+  position: fixed;
+  top: 24px;
+  right: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  z-index: 1000;
+}
+
+/* SMALL SQUARE LOGO */
+.nav-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+/* NAV LINKS */
+.top-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--brand-dark);
+}
+
+.top-nav a:hover {
+  color: var(--brand-gold);
 }
 
 /* =========================
@@ -152,7 +161,7 @@ li {
 }
 
 /* =========================
-   SECTIONS (CANVA-STYLE)
+   SECTIONS
    ========================= */
 
 .section {
@@ -185,7 +194,7 @@ li {
 }
 
 /* =========================
-   CARD GRIDS
+   GRIDS
    ========================= */
 
 .card-grid,
@@ -196,7 +205,7 @@ li {
 }
 
 /* =========================
-   CONTACT CARD
+   CONTACT
    ========================= */
 
 .contact-card {
@@ -217,11 +226,17 @@ li {
     padding: 2rem 1.4rem;
   }
 
-  .hero-overlay {
-    padding: 2.2rem 1.6rem;
+  .top-nav {
+    top: 16px;
+    right: 20px;
+    gap: 1rem;
   }
 
-  .hero h1 {
-    font-size: 2rem;
+  .nav-logo {
+    height: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
   }
 }
