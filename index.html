@@ -12,7 +12,7 @@
   <!-- HERO / BANNER -->
   <section class="hero">
 
-    <!-- TOP NAV WITH LOGO + HAMBURGER CTA -->
+    <!-- TOP NAV (LOGO + HAMBURGER CTA) -->
     <nav class="top-nav">
       <img src="bokzy-plus-logo.png" class="nav-logo" alt="Bokzy+ Logo">
 
@@ -31,8 +31,8 @@
     </nav>
     <!-- END TOP NAV -->
 
-    <div class="hero-overlay">
-      <!-- LARGE CIRCULAR BADGE (UNCHANGED) -->
+    <div class="hero-overlay reveal">
+      <!-- LARGE CIRCULAR BADGE -->
       <img class="hero-logo" src="bokzy-plus-logo.png" alt="Bokzy+ Virtual Productivity Ally logo">
 
       <h1>Bokzy+ Virtual Productivity Ally</h1>
@@ -41,13 +41,12 @@
         Operational Support | Transaction Coordination | Workflow Execution
       </p>
 
-      <!-- HERO CTA -->
       <a href="services.html" class="hero-cta">View Services</a>
     </div>
   </section>
 
   <!-- INTRO SECTION -->
-  <section class="section section-soft">
+  <section class="section section-soft reveal">
     <div class="card">
       <p class="lead-text">
         Helping agents, founders, and teams stay organized, on time, and in control
@@ -57,20 +56,20 @@
   </section>
 
   <!-- WHAT I SUPPORT -->
-  <section class="section">
+  <section class="section reveal">
     <h3 class="section-title">What I Support</h3>
 
     <div class="card-grid">
-      <div class="card">End-to-end transaction coordination</div>
-      <div class="card">Contract-to-close management</div>
-      <div class="card">Document preparation and compliance tracking</div>
-      <div class="card">CRM and operations support</div>
-      <div class="card">Process organization & workflow optimization</div>
+      <div class="card reveal">End-to-end transaction coordination</div>
+      <div class="card reveal">Contract-to-close management</div>
+      <div class="card reveal">Document preparation and compliance tracking</div>
+      <div class="card reveal">CRM and operations support</div>
+      <div class="card reveal">Process organization & workflow optimization</div>
     </div>
   </section>
 
   <!-- HOW I WORK -->
-  <section class="section section-soft">
+  <section class="section section-soft reveal">
     <div class="card">
       <h3 class="section-title">How I Work</h3>
       <p>
@@ -83,6 +82,56 @@
       </p>
     </div>
   </section>
+
+  <!-- =========================
+       INTERACTIONS & ANIMATION
+       ========================= -->
+
+  <!-- Cursor-aware hover tilt -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+
+        card.style.transform = `
+          perspective(800px)
+          rotateX(${rotateX}deg)
+          rotateY(${rotateY}deg)
+          translateY(-6px)
+          scale(1.015)
+        `;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+
+  <!-- Scroll-in reveal -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
