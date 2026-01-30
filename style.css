@@ -305,3 +305,58 @@ body {
   color: #1f1f1f;
   white-space: nowrap;
 }
+/* =========================
+   SECTION CTA BUTTONS — BOKZY+ BRAND
+   ========================= */
+
+.section-cta-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+/* Base pill button */
+.cta-button {
+  min-width: 130px;
+  text-align: center;
+
+  padding: 12px 22px;
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* PRIMARY — Services (brand gold) */
+.cta-button.primary {
+  background-color: var(--brand-gold);
+  color: #1f1f1f;
+  border: 2px solid var(--brand-gold);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-2px);
+  background-color: #e6b91f; /* slightly darker gold */
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+/* SECONDARY — Home / Portfolio */
+.cta-button.secondary {
+  background-color: #ffffff;
+  color: var(--brand-dark);
+  border: 2px solid rgba(244, 196, 48, 0.65);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(244, 196, 48, 0.12);
+  transform: translateY(-2px);
+}
