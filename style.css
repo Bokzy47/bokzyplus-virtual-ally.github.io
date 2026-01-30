@@ -100,3 +100,9 @@ li {
   width: 72px;
   background-color: var(--brand-gold);
   margin:
+/* Allow hero to break out of body width */
+.hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  border-radius: 0;
+}
