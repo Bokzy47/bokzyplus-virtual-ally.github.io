@@ -9,7 +9,7 @@
 
 <body class="page-services">
 
-  <!-- TOP RIGHT NAV (SAME AS HOME) -->
+  <!-- TOP RIGHT NAV (LOGO + BUTTONS) -->
   <div class="top-right-nav">
     <img src="bokzy-plus-logo.png" alt="Bokzy+ Logo" class="top-nav-logo">
 
@@ -22,7 +22,7 @@
     </a>
   </div>
 
-  <!-- HERO / PAGE HEADER -->
+  <!-- HERO -->
   <section class="hero"></section>
 
   <!-- INTRO -->
@@ -40,25 +40,25 @@
     <h3 class="section-title">Core Services</h3>
 
     <div class="card-grid">
-      <div class="card">
+      <div class="card reveal">
         <strong>Transaction Coordination</strong><br><br>
         Contract-to-close support including document management, deadline tracking,
         compliance preparation, and coordination with all parties involved.
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <strong>Contract & Document Management</strong><br><br>
         Review, organization, and preparation of contracts, disclosures,
         addenda, and compliance-ready transaction files.
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <strong>Deadline & Timeline Tracking</strong><br><br>
         Proactive monitoring of critical dates such as inspections,
         financing contingencies, earnest money, and closing timelines.
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <strong>CRM & Operations Support</strong><br><br>
         Backend administrative support including CRM updates,
         workflow organization, and operational task management.
@@ -94,31 +94,46 @@
   </section>
 
   <!-- CONTACT / CTA -->
-  <!-- CONTACT / CTA -->
-<section class="section">
-  <div class="card contact-card">
-    <strong>Let’s Work Together</strong><br><br>
-    📩 christinegella710@gmail.com
+  <section class="section reveal">
+    <div class="card contact-card">
+      <strong>Let’s Work Together</strong><br><br>
+      📩 christinegella710@gmail.com
 
-    <!-- SOCIAL ICONS -->
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/christinegella710/" target="_blank" aria-label="LinkedIn">
-        <span class="social-icon">in</span>
-      </a>
+      <!-- SOCIAL ICONS -->
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/christinegella710/" target="_blank" aria-label="LinkedIn">
+          <span class="social-icon">in</span>
+        </a>
 
-      <a href="https://www.instagram.com/bokzy_productivity_ally/" target="_blank" aria-label="Instagram">
-        <span class="social-icon">ig</span>
-      </a>
+        <a href="https://www.instagram.com/bokzy_productivity_ally/" target="_blank" aria-label="Instagram">
+          <span class="social-icon">ig</span>
+        </a>
 
-      <a href="https://www.facebook.com/bokzyplus.virtualsupportally/" target="_blank" aria-label="Facebook">
-        <span class="social-icon">f</span>
-      </a>
+        <a href="https://www.facebook.com/bokzyplus.virtualsupportally/" target="_blank" aria-label="Facebook">
+          <span class="social-icon">f</span>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- CARD HOVER INTERACTION (RESTORED) -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rx = ((y - r.height / 2) / (r.height / 2)) * -4;
+        const ry = ((x - r.width / 2) / (r.width / 2)) * 4;
+        card.style.transform =
+          `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.015)`;
+      });
+      card.addEventListener('mouseleave', () => card.style.transform = '');
+    });
+  </script>
 
-  <!-- SCROLL REVEAL -->
+  <!-- SCROLL REVEAL (RESTORED) -->
   <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
