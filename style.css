@@ -1,23 +1,19 @@
 /* =========================
-   BOKZY+ BRAND TOKENS
+   BRAND TOKENS
    ========================= */
-
 :root {
   --brand-gold: #f4c430;
-  --brand-gold-soft: rgba(244, 196, 48, 0.18);
   --brand-dark: #1f1f1f;
-  --brand-muted: #6b7280;
   --brand-bg: #fafafa;
 }
 
 /* =========================
    BASE
    ========================= */
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--brand-bg);
   color: var(--brand-dark);
-  background-color: var(--brand-bg);
 
   max-width: 920px;
   margin: 48px auto;
@@ -25,9 +21,8 @@ body {
 }
 
 /* =========================
-   TOP RIGHT NAV (LOGO + BUTTONS)
+   TOP RIGHT NAV (FINAL)
    ========================= */
-
 .top-right-nav {
   position: fixed;
   top: 24px;
@@ -35,130 +30,69 @@ body {
 
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 
-  z-index: 10000;
+  z-index: 9999;
 }
 
 .top-nav-logo {
-  height: 34px;
+  height: 36px;
 }
 
 /* Nav buttons */
-.top-nav-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.nav-pill {
+.nav-btn {
   padding: 10px 18px;
   border-radius: 999px;
 
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  background-color: var(--brand-gold);
+  background: var(--brand-gold);
   color: #1f1f1f;
-
-  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.nav-pill:hover {
-  background-color: #e6b91f;
-}
-
-/* Primary (Services) */
-.nav-pill.primary {
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.12);
+/* Primary highlight (Services) */
+.nav-primary {
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
 }
 
 /* =========================
-   HERO (STATIC)
+   HERO
    ========================= */
-
 .hero {
   background-image: url("hero-banner.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   min-height: 420px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-
-  position: relative;
-}
-
-/* Ensure hero never moves */
-.hero,
-.hero:hover {
-  transform: none !important;
-  transition: none !important;
-  background-position: center !important;
 }
 
 /* =========================
-   TYPOGRAPHY
+   SECTIONS
    ========================= */
-
-.hero-subtitle {
-  font-size: 1.35rem;
-  font-weight: 600;
-}
-
-.center-text {
-  text-align: center;
-}
-
-/* =========================
-   SECTIONS & CARDS
-   ========================= */
-
 .section-soft {
-  background-color: var(--brand-gold-soft);
-  padding: 2.6rem 2.2rem;
+  background: rgba(244,196,48,0.18);
+  padding: 2.5rem;
   border-radius: 18px;
 }
 
 .card {
-  background-color: #ffffff;
-  border-radius: 16px;
+  background: #fff;
   padding: 1.8rem;
-
-  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
 
-/* =========================
-   GRID
-   ========================= */
-
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 1.6rem;
-}
-
-/* =========================
-   SCROLL REVEAL
-   ========================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* =========================
    MOBILE
    ========================= */
-
 @media (max-width: 768px) {
   .card-grid {
     grid-template-columns: 1fr;
