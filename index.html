@@ -12,7 +12,7 @@
   <!-- HERO / BANNER -->
   <section class="hero">
 
-    <!-- HAMBURGER CTA (RIGHT SIDE, BELOW GLASSES) -->
+    <!-- HAMBURGER CTA (RIGHT SIDE) -->
     <div class="hero-cta-nav">
       <img src="bokzy-plus-logo.png" class="nav-logo" alt="Bokzy+ Logo">
 
@@ -30,14 +30,12 @@
       </div>
     </div>
 
-    <!-- HERO BRANDING (LEFT BADGE STAYS) -->
-    <div class="hero-overlay">
-      <img class="hero-logo" src="bokzy-plus-logo.png" alt="Bokzy+ Virtual Productivity Ally logo">
-    </div>
+    <!-- HERO OVERLAY (EMPTY ON PURPOSE – NO LOGO) -->
+    <div class="hero-overlay"></div>
 
   </section>
 
-  <!-- SERVICE LINE (MOVED BELOW HERO) -->
+  <!-- SERVICE LINE -->
   <section class="section reveal">
     <p class="hero-subtitle center-text">
       Operational Support | Transaction Coordination | Workflow Execution
@@ -84,7 +82,7 @@
     </div>
   </section>
 
-  <!-- INTERACTIONS (UNCHANGED) -->
+  <!-- INTERACTIONS -->
   <script>
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
@@ -92,9 +90,10 @@
         const r = card.getBoundingClientRect();
         const x = e.clientX - r.left;
         const y = e.clientY - r.top;
-        const rx = ((y - r.height/2) / (r.height/2)) * -4;
-        const ry = ((x - r.width/2) / (r.width/2)) * 4;
-        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.015)`;
+        const rx = ((y - r.height / 2) / (r.height / 2)) * -4;
+        const ry = ((x - r.width / 2) / (r.width / 2)) * 4;
+        card.style.transform =
+          `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px) scale(1.015)`;
       });
       card.addEventListener('mouseleave', () => card.style.transform = '');
     });
