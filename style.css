@@ -268,3 +268,40 @@ body {
     right: 16px;
   }
 }
+/* =========================
+   SERVICES CTA LABEL FIX
+   ========================= */
+
+.services-toggle {
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+/* Hamburger icon */
+.services-toggle .hamburger {
+  width: 18px;
+  height: 2px;
+  background: #1f1f1f;
+  position: relative;
+}
+
+.services-toggle .hamburger::before,
+.services-toggle .hamburger::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background: #1f1f1f;
+  left: 0;
+}
+
+.services-toggle .hamburger::before { top: -6px; }
+.services-toggle .hamburger::after { top: 6px; }
+
+/* Text inside CTA */
+.services-toggle .cta-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1f1f1f;
+  white-space: nowrap;
+}
