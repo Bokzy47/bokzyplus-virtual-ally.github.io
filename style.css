@@ -393,3 +393,47 @@ body {
     0 18px 40px rgba(0, 0, 0, 0.14),
     0 0 0 1px rgba(244, 196, 48, 0.35);
 }
+/* =========================
+   RESTORE NAV + CTA (FINAL FIX)
+   ========================= */
+
+/* Force nav to always be visible and on the right */
+.hero-cta-nav {
+  position: fixed !important;
+  top: 24px;
+  right: 24px;
+  left: auto !important;
+  bottom: auto !important;
+
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure logo shows */
+.hero-cta-nav .nav-logo {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure hamburger CTA shows */
+.hero-cta-nav .menu-toggle {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Make sure nothing clips it */
+body,
+.hero,
+section {
+  overflow: visible !important;
+  transform: none !important;
+}
