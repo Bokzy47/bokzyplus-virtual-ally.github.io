@@ -332,3 +332,25 @@ body {
     transform: none;
   }
 }
+/* =========================
+   FINAL HERO LOCK (STATIC)
+   ========================= */
+
+/* Absolutely freeze the hero */
+.hero {
+  transform: none !important;
+  transition: none !important;
+  background-attachment: scroll !important;
+  background-position: center !important;
+}
+
+/* Kill any hover motion on hero */
+.hero:hover {
+  transform: none !important;
+  background-position: center !important;
+}
+
+/* Remove hero logo entirely */
+.hero-logo {
+  display: none !important;
+}
