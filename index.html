@@ -12,8 +12,8 @@
   <!-- HERO / BANNER -->
   <section class="hero">
 
-    <!-- TOP NAV (LOGO + HAMBURGER CTA) -->
-    <nav class="top-nav">
+    <!-- HAMBURGER CTA (RIGHT SIDE, BELOW GLASSES) -->
+    <div class="hero-cta-nav">
       <img src="bokzy-plus-logo.png" class="nav-logo" alt="Bokzy+ Logo">
 
       <input type="checkbox" id="menu" class="menu-checkbox" hidden>
@@ -28,30 +28,31 @@
         <a href="services.html">Services</a>
         <a href="https://www.notion.so/Transaction-Coordination-Support-Contract-to-Close-195f8b1dd2d380bf8c81caf452ef74cd?source=copy_link" target="_blank">Portfolio</a>
       </div>
-    </nav>
-    <!-- END TOP NAV -->
-
-    <div class="hero-overlay reveal">
-      <!-- LARGE CIRCULAR BADGE -->
-      <img class="hero-logo" src="bokzy-plus-logo.png" alt="Bokzy+ Virtual Productivity Ally logo">
-
-      <h1>Bokzy+ Virtual Productivity Ally</h1>
-
-      <p class="hero-subtitle">
-        Operational Support | Transaction Coordination | Workflow Execution
-      </p>
-
-      <a href="services.html" class="hero-cta">View Services</a>
     </div>
+
+    <!-- HERO BRANDING (LEFT BADGE STAYS) -->
+    <div class="hero-overlay">
+      <img class="hero-logo" src="bokzy-plus-logo.png" alt="Bokzy+ Virtual Productivity Ally logo">
+    </div>
+
   </section>
 
-  <!-- INTRO SECTION -->
+  <!-- SERVICE LINE (MOVED BELOW HERO) -->
+  <section class="section reveal">
+    <p class="hero-subtitle center-text">
+      Operational Support | Transaction Coordination | Workflow Execution
+    </p>
+  </section>
+
+  <!-- INTRO STATEMENT BLOCK -->
   <section class="section section-soft reveal">
     <div class="card">
       <p class="lead-text">
         Helping agents, founders, and teams stay organized, on time, and in control
         through proactive systems and clean execution.
       </p>
+
+      <a href="services.html" class="hero-cta">View Services</a>
     </div>
   </section>
 
@@ -60,78 +61,4 @@
     <h3 class="section-title">What I Support</h3>
 
     <div class="card-grid">
-      <div class="card reveal">End-to-end transaction coordination</div>
-      <div class="card reveal">Contract-to-close management</div>
-      <div class="card reveal">Document preparation and compliance tracking</div>
-      <div class="card reveal">CRM and operations support</div>
-      <div class="card reveal">Process organization & workflow optimization</div>
-    </div>
-  </section>
-
-  <!-- HOW I WORK -->
-  <section class="section section-soft reveal">
-    <div class="card">
-      <h3 class="section-title">How I Work</h3>
-      <p>
-        I combine attention to detail with proactive communication, ensuring deadlines
-        are met, documents are accurate, and operations run smoothly—whether supporting
-        a single agent, a real estate team, or a growing company.
-      </p>
-      <p class="tagline">
-        Reliable. Proactive. Systems-driven support.
-      </p>
-    </div>
-  </section>
-
-  <!-- =========================
-       INTERACTIONS & ANIMATION
-       ========================= -->
-
-  <!-- Cursor-aware hover tilt -->
-  <script>
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
-
-        card.style.transform = `
-          perspective(800px)
-          rotateX(${rotateX}deg)
-          rotateY(${rotateY}deg)
-          translateY(-6px)
-          scale(1.015)
-        `;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  </script>
-
-  <!-- Scroll-in reveal -->
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
+      <div c
