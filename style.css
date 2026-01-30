@@ -264,3 +264,71 @@ body {
 .hero:hover {
   background-position: center top;
 }
+/* =========================
+   CANVA-LEVEL INTERACTIONS
+   ========================= */
+
+/* ---------- Global easing ---------- */
+:root {
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --gold-glow: rgba(244, 196, 48, 0.45);
+}
+
+/* ---------- Scroll-in animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-soft), transform 0.8s var(--ease-soft);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Cards: staggered hover timing ---------- */
+.card {
+  transition:
+    transform 0.35s var(--ease-soft),
+    box-shadow 0.35s var(--ease-soft);
+}
+
+/* Stagger effect */
+.card:nth-child(1) { transition-delay: 0ms; }
+.card:nth-child(2) { transition-delay: 40ms; }
+.card:nth-child(3) { transition-delay: 80ms; }
+.card:nth-child(4) { transition-delay: 120ms; }
+.card:nth-child(5) { transition-delay: 160ms; }
+
+/* ---------- Gold accent glow (hover only) ---------- */
+.card:hover {
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.14),
+    0 0 0 1px var(--brand-gold),
+    0 0 28px var(--gold-glow);
+  transform: translateY(-6px) scale(1.015);
+}
+
+/* ---------- Section soft hover ---------- */
+.section-soft {
+  transition: transform 0.4s var(--ease-soft);
+}
+
+.section-soft:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- CTA glow ---------- */
+.hero-cta:hover,
+.menu-toggle:hover {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    0 0 22px var(--gold-glow);
+}
+
+/* ---------- Prevent motion overload on mobile ---------- */
+@media (max-width: 768px) {
+  .card:hover {
+    transform: none;
+  }
+}
