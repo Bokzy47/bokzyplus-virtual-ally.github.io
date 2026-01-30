@@ -11,18 +11,25 @@
   --brand-bg: #fafafa;
 }
 
-/* Base layout */
+/* =========================
+   BASE LAYOUT
+   ========================= */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.65;
   color: var(--brand-dark);
   background-color: var(--brand-bg);
+
   max-width: 920px;
   margin: 48px auto;
   padding: 0 24px;
 }
 
-/* Main headings */
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
 h1 {
   font-size: 2.6rem;
   font-weight: 700;
@@ -33,7 +40,6 @@ h1 {
 h2 {
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--brand-dark);
   margin-top: 1.8rem;
   margin-bottom: 0.8rem;
 }
@@ -43,13 +49,10 @@ h3 {
   font-weight: 600;
   margin-top: 2.2rem;
   margin-bottom: 0.6rem;
-  color: var(--brand-dark);
 }
 
-/* Text */
 p {
   margin-bottom: 1.2rem;
-  color: var(--brand-dark);
 }
 
 .tagline {
@@ -57,19 +60,10 @@ p {
   color: var(--brand-muted);
 }
 
-/* Navigation links */
-p a {
-  color: var(--brand-brown);
-  text-decoration: none;
-  font-weight: 500;
-}
+/* =========================
+   LISTS
+   ========================= */
 
-p a:hover {
-  color: var(--brand-gold);
-  text-decoration: underline;
-}
-
-/* Lists */
 ul {
   margin-left: 1.3rem;
   margin-bottom: 1.6rem;
@@ -79,30 +73,155 @@ li {
   margin-bottom: 0.55rem;
 }
 
-/* Support grid */
+/* =========================
+   HERO / BANNER (FINAL)
+   ========================= */
+
+.hero {
+  background-image: url("hero-banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 420px;
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 0;
+}
+
+.hero-overlay {
+  background: rgba(250, 250, 250, 0.92);
+  padding: 3rem 2.5rem;
+  border-radius: 14px;
+
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* LOCK LOGO SIZE — NEVER SCALE */
+.hero-logo {
+  height: 48px;
+  max-height: 48px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* =========================
+   SERVICES HERO VARIANT
+   ========================= */
+
+.hero.services-hero {
+  background-image: url("services-banner.png");
+}
+
+/* =========================
+   CTA BUTTON
+   ========================= */
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.6rem;
+  background-color: var(--brand-gold);
+  color: #1f1f1f;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.hero-cta:hover {
+  background-color: #e6b91f;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SECTIONS (CANVA-STYLE)
+   ========================= */
+
+.section {
+  margin: 3rem 0;
+}
+
+.section-soft {
+  background-color: #f9fafb;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   CARD GRIDS
+   ========================= */
+
+.card-grid,
 .support-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem 2rem;
-  margin-top: 0.75rem;
+  gap: 1.4rem;
 }
 
-@media (max-width: 640px) {
+/* =========================
+   CONTACT CARD
+   ========================= */
+
+.contact-card {
+  text-align: center;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+  .card-grid,
   .support-grid {
     grid-template-columns: 1fr;
   }
-}
 
-/* Brand divider */
-.brand-divider {
-  border: none;
-  height: 2px;
-  width: 72px;
-  background-color: var(--brand-gold);
-  margin:
-/* Allow hero to break out of body width */
-.hero {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  border-radius: 0;
+  .section-soft {
+    padding: 2rem 1.4rem;
+  }
+
+  .hero-overlay {
+    padding: 2.2rem 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
