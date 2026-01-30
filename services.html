@@ -7,26 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page-services">
+
+  <!-- TOP RIGHT NAV (SAME AS HOME) -->
+  <div class="top-right-nav">
+    <img src="bokzy-plus-logo.png" alt="Bokzy+ Logo" class="top-nav-logo">
+
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="services.html" class="nav-btn nav-primary">Services</a>
+    <a href="https://www.notion.so/Transaction-Coordination-Support-Contract-to-Close-195f8b1dd2d380bf8c81caf452ef74cd"
+       target="_blank"
+       class="nav-btn">
+      Portfolio
+    </a>
+  </div>
 
   <!-- HERO / PAGE HEADER -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <img class="hero-logo" src="bokzy-plus-logo.png" alt="Bokzy+ Virtual Productivity Ally logo">
-      <h1>Services</h1>
-   
-    </div>
-  </section>
-
-  <!-- NAVIGATION -->
-  <nav class="main-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="https://www.notion.so/Transaction-Coordination-Support-Contract-to-Close-195f8b1dd2d380bf8c81caf452ef74cd?source=copy_link" target="_blank">Portfolio</a>
-  </nav>
+  <section class="hero"></section>
 
   <!-- INTRO -->
-  <section class="section section-soft">
+  <section class="section section-soft reveal">
     <div class="card">
       <p class="lead-text">
         I provide structured, deadline-driven support to real estate professionals,
@@ -36,7 +36,7 @@
   </section>
 
   <!-- CORE SERVICES -->
-  <section class="section">
+  <section class="section reveal">
     <h3 class="section-title">Core Services</h3>
 
     <div class="card-grid">
@@ -67,7 +67,7 @@
   </section>
 
   <!-- HOW I ADD VALUE -->
-  <section class="section section-soft">
+  <section class="section section-soft reveal">
     <div class="card">
       <h3 class="section-title">How I Add Value</h3>
       <ul>
@@ -81,7 +81,7 @@
   </section>
 
   <!-- WORKING STYLE -->
-  <section class="section">
+  <section class="section reveal">
     <div class="card">
       <h3 class="section-title">Working Style</h3>
       <p>
@@ -94,12 +94,21 @@
   </section>
 
   <!-- CONTACT / CTA -->
-  <section class="section">
+  <section class="section reveal">
     <div class="card contact-card">
       <strong>Let’s Work Together</strong><br><br>
       📩 christinegella710@gmail.com
     </div>
   </section>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    }, { threshold: 0.15 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
 
 </body>
 </html>
