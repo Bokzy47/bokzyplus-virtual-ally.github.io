@@ -12,7 +12,7 @@
   <!-- HERO / BANNER -->
   <section class="hero">
 
-    <!-- HAMBURGER CTA (RIGHT SIDE) -->
+    <!-- GLOBAL HAMBURGER CTA (TOP RIGHT) -->
     <div class="hero-cta-nav">
       <img src="bokzy-plus-logo.png" class="nav-logo" alt="Bokzy+ Logo">
 
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <!-- HERO OVERLAY (EMPTY ON PURPOSE – NO LOGO) -->
+    <!-- HERO OVERLAY (INTENTIONALLY EMPTY) -->
     <div class="hero-overlay"></div>
 
   </section>
@@ -45,12 +45,29 @@
   <!-- INTRO STATEMENT BLOCK -->
   <section class="section section-soft reveal">
     <div class="card">
+
       <p class="lead-text">
         Helping agents, founders, and teams stay organized, on time, and in control
         through proactive systems and clean execution.
       </p>
 
-      <a href="services.html" class="hero-cta">View Services</a>
+      <!-- SERVICES HAMBURGER CTA (REPLACES "VIEW SERVICES") -->
+      <div class="section-cta-nav">
+        <img src="bokzy-plus-logo.png" class="nav-logo small" alt="Bokzy+ Logo">
+
+        <input type="checkbox" id="services-menu" class="menu-checkbox" hidden>
+
+        <label for="services-menu" class="menu-toggle" aria-label="Open services menu">
+          <span></span>
+        </label>
+
+        <div class="nav-links">
+          <a href="services.html#transaction">Transaction Coordination</a>
+          <a href="services.html#contracts">Contract Management</a>
+          <a href="services.html#crm">CRM & Operations Support</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
