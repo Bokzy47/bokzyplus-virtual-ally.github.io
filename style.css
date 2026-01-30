@@ -4,10 +4,13 @@
 
 :root {
   --brand-gold: #f4c430;
-  --brand-gold-strong: #f7cf4a;
+  --brand-gold-soft: rgba(244, 196, 48, 0.18);
   --brand-dark: #1f1f1f;
   --brand-muted: #6b7280;
   --brand-bg: #fafafa;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --gold-glow: rgba(244, 196, 48, 0.45);
 }
 
 /* =========================
@@ -24,78 +27,69 @@ body {
 }
 
 /* =========================
-   HERO
+   HERO (STATIC — NO MOTION)
    ========================= */
 
 .hero {
   background-image: url("hero-banner.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+
   min-height: 420px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  display: flex;
-  align-items: center;
+
   position: relative;
+
+  transform: none !important;
+  transition: none !important;
 }
 
-.hero h1 {
-  display: none;
+.hero:hover {
+  background-position: center !important;
 }
 
-.hero-overlay {
-  background: transparent;
-  padding: 0;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
+/* Remove hero logo entirely */
 .hero-logo {
-  height: 48px;
-  margin-bottom: 0.75rem;
-}
-
-.hero-subtitle {
-  font-size: 1.35rem;
-  font-weight: 600;
+  display: none !important;
 }
 
 /* =========================
-   TOP NAV + HAMBURGER CTA
+   RIGHT-SIDE NAV + CTA
    ========================= */
 
-.top-nav {
+.hero-cta-nav {
   position: fixed;
   top: 24px;
-  right: 32px;
+  right: 24px;
+
   display: flex;
   align-items: center;
   gap: 12px;
-  z-index: 1000;
+
+  z-index: 100000;
 }
 
 .nav-logo {
   height: 34px;
+  display: block;
 }
 
-/* Hamburger CTA Button */
+/* Hamburger CTA */
 .menu-toggle {
   appearance: none;
   border: none;
   background: var(--brand-gold);
-  color: #1f1f1f;
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
-  font-weight: 600;
+
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
-/* Hamburger icon */
 .menu-toggle span {
-  display: block;
   width: 18px;
   height: 2px;
   background: #1f1f1f;
@@ -112,24 +106,22 @@ body {
   left: 0;
 }
 
-.menu-toggle span::before {
-  top: -6px;
-}
+.menu-toggle span::before { top: -6px; }
+.menu-toggle span::after { top: 6px; }
 
-.menu-toggle span::after {
-  top: 6px;
-}
-
-/* Dropdown Menu */
+/* Dropdown */
 .nav-links {
   position: absolute;
   top: 56px;
   right: 0;
+
   background: #ffffff;
   border-radius: 14px;
   padding: 12px 16px;
+
   display: none;
   flex-direction: column;
+
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
@@ -145,21 +137,35 @@ body {
 }
 
 /* =========================
-   BRAND YELLOW BLOCKS
+   SECTIONS & CARDS
    ========================= */
 
 .section-soft {
-  background-color: var(--brand-gold-strong);
+  background-color: var(--brand-gold-soft);
   padding: 2.6rem 2.2rem;
   border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .card {
   background-color: #fffdf2;
   border-radius: 16px;
   padding: 1.8rem;
-  border: 2px solid var(--brand-gold);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+
+  border: 1px solid rgba(244, 196, 48, 0.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.35s var(--ease-soft),
+    box-shadow 0.35s var(--ease-soft);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(244, 196, 48, 0.35),
+    0 0 22px var(--gold-glow);
 }
 
 /* =========================
@@ -173,108 +179,9 @@ body {
 }
 
 /* =========================
-   MOBILE
+   SCROLL REVEAL
    ========================= */
 
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .top-nav {
-    top: 16px;
-    right: 16px;
-  }
-
-  .nav-logo {
-    height: 30px;
-  }
-}
-/* =========================
-   CANVA-STYLE MICRO INTERACTIONS
-   ========================= */
-
-/* Global smoothing */
-* {
-  transition: 
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    background-color 0.35s ease,
-    color 0.25s ease;
-}
-
-/* Cards feel alive */
-.card {
-  cursor: default;
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.15);
-}
-
-/* Section soft blocks lift subtly */
-.section-soft:hover {
-  transform: translateY(-4px);
-}
-
-/* CTA button = tactile */
-.hero-cta {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
-}
-
-.hero-cta:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-}
-
-/* Hamburger CTA feedback */
-.menu-toggle:hover {
-  transform: scale(1.06);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-}
-
-/* Nav dropdown animation */
-.nav-links {
-  opacity: 0;
-  transform: translateY(-8px) scale(0.98);
-  transition: all 0.25s ease;
-}
-
-.menu-checkbox:checked + .menu-toggle + .nav-links {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Text hover polish */
-.card p,
-.card div {
-  transition: color 0.25s ease;
-}
-
-.card:hover p {
-  color: #2a2a2a;
-}
-
-/* Subtle image motion (hero background illusion) */
-.hero {
-  background-position: center;
-}
-
-.hero:hover {
-  background-position: center top;
-}
-/* =========================
-   CANVA-LEVEL INTERACTIONS
-   ========================= */
-
-/* ---------- Global easing ---------- */
-:root {
-  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
-  --gold-glow: rgba(244, 196, 48, 0.45);
-}
-
-/* ---------- Scroll-in animation ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -286,154 +193,17 @@ body {
   transform: translateY(0);
 }
 
-/* ---------- Cards: staggered hover timing ---------- */
-.card {
-  transition:
-    transform 0.35s var(--ease-soft),
-    box-shadow 0.35s var(--ease-soft);
-}
+/* =========================
+   MOBILE
+   ========================= */
 
-/* Stagger effect */
-.card:nth-child(1) { transition-delay: 0ms; }
-.card:nth-child(2) { transition-delay: 40ms; }
-.card:nth-child(3) { transition-delay: 80ms; }
-.card:nth-child(4) { transition-delay: 120ms; }
-.card:nth-child(5) { transition-delay: 160ms; }
-
-/* ---------- Gold accent glow (hover only) ---------- */
-.card:hover {
-  box-shadow:
-    0 22px 45px rgba(0, 0, 0, 0.14),
-    0 0 0 1px var(--brand-gold),
-    0 0 28px var(--gold-glow);
-  transform: translateY(-6px) scale(1.015);
-}
-
-/* ---------- Section soft hover ---------- */
-.section-soft {
-  transition: transform 0.4s var(--ease-soft);
-}
-
-.section-soft:hover {
-  transform: translateY(-4px);
-}
-
-/* ---------- CTA glow ---------- */
-.hero-cta:hover,
-.menu-toggle:hover {
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 22px var(--gold-glow);
-}
-
-/* ---------- Prevent motion overload on mobile ---------- */
 @media (max-width: 768px) {
-  .card:hover {
-    transform: none;
+  .card-grid {
+    grid-template-columns: 1fr;
   }
-}
-/* =========================
-   FINAL HERO LOCK (STATIC)
-   ========================= */
 
-/* Absolutely freeze the hero */
-.hero {
-  transform: none !important;
-  transition: none !important;
-  background-attachment: scroll !important;
-  background-position: center !important;
-}
-
-/* Kill any hover motion on hero */
-.hero:hover {
-  transform: none !important;
-  background-position: center !important;
-}
-
-/* Remove hero logo entirely */
-.hero-logo {
-  display: none !important;
-}
-/* =========================
-   FORCE NAV TO RIGHT SIDE
-   ========================= */
-
-.hero-cta-nav {
-  position: fixed !important;
-  top: 32px;
-  right: 32px;
-  left: auto !important;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  z-index: 9999;
-}
-/* =========================
-   SLIM DOWN YELLOW CARD EDGES
-   ========================= */
-
-/* Section blocks (yellow containers) */
-.section-soft {
-  background-color: rgba(244, 196, 48, 0.18); /* softer gold */
-  border: none;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* Inner cards */
-.card {
-  border: 1px solid rgba(244, 196, 48, 0.25); /* thin, subtle */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-/* Hover stays elegant, not chunky */
-.card:hover {
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.14),
-    0 0 0 1px rgba(244, 196, 48, 0.35);
-}
-/* =========================
-   RESTORE NAV + CTA (FINAL FIX)
-   ========================= */
-
-/* Force nav to always be visible and on the right */
-.hero-cta-nav {
-  position: fixed !important;
-  top: 24px;
-  right: 24px;
-  left: auto !important;
-  bottom: auto !important;
-
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-
-  visibility: visible !important;
-  opacity: 1 !important;
-
-  z-index: 99999 !important;
-  pointer-events: auto !important;
-}
-
-/* Ensure logo shows */
-.hero-cta-nav .nav-logo {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Ensure hamburger CTA shows */
-.hero-cta-nav .menu-toggle {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Make sure nothing clips it */
-body,
-.hero,
-section {
-  overflow: visible !important;
-  transform: none !important;
+  .hero-cta-nav {
+    top: 16px;
+    right: 16px;
+  }
 }
