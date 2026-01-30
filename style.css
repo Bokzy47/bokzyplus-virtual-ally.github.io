@@ -370,3 +370,26 @@ body {
 
   z-index: 9999;
 }
+/* =========================
+   SLIM DOWN YELLOW CARD EDGES
+   ========================= */
+
+/* Section blocks (yellow containers) */
+.section-soft {
+  background-color: rgba(244, 196, 48, 0.18); /* softer gold */
+  border: none;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Inner cards */
+.card {
+  border: 1px solid rgba(244, 196, 48, 0.25); /* thin, subtle */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover stays elegant, not chunky */
+.card:hover {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(244, 196, 48, 0.35);
+}
