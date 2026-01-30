@@ -8,9 +8,6 @@
   --brand-dark: #1f1f1f;
   --brand-muted: #6b7280;
   --brand-bg: #fafafa;
-
-  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
-  --gold-glow: rgba(244, 196, 48, 0.45);
 }
 
 /* =========================
@@ -28,7 +25,7 @@ body {
 }
 
 /* =========================
-   HERO (STATIC)
+   HERO (STATIC, NO MOTION)
    ========================= */
 
 .hero {
@@ -42,22 +39,23 @@ body {
   margin-left: calc(-50vw + 50%);
 
   position: relative;
+}
 
+/* Ensure hero never moves */
+.hero,
+.hero:hover {
   transform: none !important;
   transition: none !important;
+  background-position: center !important;
 }
 
-.hero:hover {
-  background-position: center;
-}
-
-/* Explicitly remove hero logo if present */
+/* Remove hero logo entirely */
 .hero-logo {
   display: none !important;
 }
 
 /* =========================
-   GLOBAL HAMBURGER CTA (TOP RIGHT)
+   GLOBAL NAV (TOP RIGHT)
    ========================= */
 
 .hero-cta-nav {
@@ -69,62 +67,28 @@ body {
   align-items: center;
   gap: 12px;
 
-  z-index: 100000;
+  z-index: 10000;
 }
-
-/* =========================
-   SHARED CTA NAV (GLOBAL + SERVICES)
-   ========================= */
-
-.section-cta-nav {
-  margin-top: 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-}
-
-/* =========================
-   LOGOS
-   ========================= */
 
 .nav-logo {
   height: 34px;
-  display: block;
-}
-
-.nav-logo.small {
-  height: 28px;
 }
 
 /* =========================
-   HAMBURGER CTA BUTTON
+   HAMBURGER BUTTON (GLOBAL ONLY)
    ========================= */
 
 .menu-toggle {
-  appearance: none;
   border: none;
-  background: var(--brand-gold);
+  background-color: var(--brand-gold);
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
 
   display: flex;
   align-items: center;
-
-  transition:
-    transform 0.25s var(--ease-soft),
-    box-shadow 0.25s var(--ease-soft);
 }
 
-.menu-toggle:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.25),
-    0 0 18px var(--gold-glow);
-}
-
-/* Hamburger lines */
 .menu-toggle span {
   width: 18px;
   height: 2px;
@@ -145,10 +109,7 @@ body {
 .menu-toggle span::before { top: -6px; }
 .menu-toggle span::after { top: 6px; }
 
-/* =========================
-   DROPDOWN MENUS
-   ========================= */
-
+/* Dropdown menu */
 .nav-links {
   position: absolute;
   top: 52px;
@@ -160,13 +121,8 @@ body {
 
   display: none;
   flex-direction: column;
-  gap: 4px;
 
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-
-  opacity: 0;
-  transform: translateY(-6px) scale(0.98);
-  transition: all 0.25s var(--ease-soft);
 }
 
 .nav-links a {
@@ -178,12 +134,10 @@ body {
 
 .menu-checkbox:checked + .menu-toggle + .nav-links {
   display: flex;
-  opacity: 1;
-  transform: translateY(0) scale(1);
 }
 
 /* =========================
-   TYPOGRAPHY HELPERS
+   TYPOGRAPHY
    ========================= */
 
 .hero-subtitle {
@@ -203,28 +157,15 @@ body {
   background-color: var(--brand-gold-soft);
   padding: 2.6rem 2.2rem;
   border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
 .card {
-  background-color: #fffdf2;
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 1.8rem;
 
-  border: 1px solid rgba(244, 196, 48, 0.25);
+  border: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-
-  transition:
-    transform 0.35s var(--ease-soft),
-    box-shadow 0.35s var(--ease-soft);
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.015);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.14),
-    0 0 0 1px rgba(244,196,48,0.35),
-    0 0 22px var(--gold-glow);
 }
 
 /* =========================
@@ -238,15 +179,52 @@ body {
 }
 
 /* =========================
-   SCROLL REVEAL
+   SECTION CTA BUTTONS (FINAL, SIMPLE)
+   ========================= */
+
+.section-cta-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  background-color: #ffffff;
+  color: var(--brand-dark);
+  border: 1px solid rgba(0,0,0,0.18);
+}
+
+.cta-button:hover {
+  background-color: #f4f4f4;
+}
+
+/* Primary button (Services) */
+.cta-button.primary {
+  background-color: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: #1f1f1f;
+}
+
+.cta-button.primary:hover {
+  background-color: #e6b91f;
+}
+
+/* =========================
+   SCROLL REVEAL (OPTIONAL, SAFE)
    ========================= */
 
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition:
-    opacity 0.8s var(--ease-soft),
-    transform 0.8s var(--ease-soft);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -267,96 +245,4 @@ body {
     top: 16px;
     right: 16px;
   }
-}
-/* =========================
-   SERVICES CTA LABEL FIX
-   ========================= */
-
-.services-toggle {
-  gap: 10px;
-  padding: 10px 16px;
-}
-
-/* Hamburger icon */
-.services-toggle .hamburger {
-  width: 18px;
-  height: 2px;
-  background: #1f1f1f;
-  position: relative;
-}
-
-.services-toggle .hamburger::before,
-.services-toggle .hamburger::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 2px;
-  background: #1f1f1f;
-  left: 0;
-}
-
-.services-toggle .hamburger::before { top: -6px; }
-.services-toggle .hamburger::after { top: 6px; }
-
-/* Text inside CTA */
-.services-toggle .cta-text {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #1f1f1f;
-  white-space: nowrap;
-}
-/* =========================
-   SECTION CTA BUTTONS — BOKZY+ BRAND
-   ========================= */
-
-.section-cta-buttons {
-  display: flex;
-  gap: 16px;
-  margin-top: 22px;
-  flex-wrap: wrap;
-}
-
-/* Base pill button */
-.cta-button {
-  min-width: 130px;
-  text-align: center;
-
-  padding: 12px 22px;
-  border-radius: 999px;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-/* PRIMARY — Services (brand gold) */
-.cta-button.primary {
-  background-color: var(--brand-gold);
-  color: #1f1f1f;
-  border: 2px solid var(--brand-gold);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-}
-
-.cta-button.primary:hover {
-  transform: translateY(-2px);
-  background-color: #e6b91f; /* slightly darker gold */
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
-}
-
-/* SECONDARY — Home / Portfolio */
-.cta-button.secondary {
-  background-color: #ffffff;
-  color: var(--brand-dark);
-  border: 2px solid rgba(244, 196, 48, 0.65);
-}
-
-.cta-button.secondary:hover {
-  background-color: rgba(244, 196, 48, 0.12);
-  transform: translateY(-2px);
 }
