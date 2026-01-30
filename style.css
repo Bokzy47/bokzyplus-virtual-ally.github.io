@@ -104,3 +104,17 @@ body {
     flex-wrap: wrap;
   }
 }
+/* =========================
+   HERO SERVICE LINE FIX
+   ========================= */
+
+.hero-subtitle {
+  font-weight: 700;          /* make it bold */
+  text-align: center;        /* center text */
+  margin: 0 auto;            /* center block */
+  max-width: 900px;          /* prevent over-stretch */
+}
+
+.section .hero-subtitle {
+  display: block;
+}
