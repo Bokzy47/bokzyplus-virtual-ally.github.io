@@ -8,6 +8,10 @@
   --brand-brown: #5a3a2e;
   --brand-muted: #6b7280;
   --brand-bg: #fafafa;
+
+  /* Soft gold tints */
+  --brand-gold-soft: rgba(244, 196, 48, 0.12);
+  --brand-gold-border: rgba(244, 196, 48, 0.35);
 }
 
 /* =========================
@@ -29,7 +33,6 @@ body {
    TYPOGRAPHY
    ========================= */
 
-/* REMOVE ONLY THE LARGE HERO HEADLINE */
 .hero h1 {
   display: none;
 }
@@ -78,7 +81,6 @@ p {
   position: relative;
 }
 
-/* REMOVE WHITE RECTANGLE OVERLAY */
 .hero-overlay {
   background: transparent;
   padding: 0;
@@ -88,16 +90,13 @@ p {
   margin: 0 auto;
 }
 
-/* KEEP LARGE CIRCULAR BADGE (LEFT) */
 .hero-logo {
   height: 48px;
-  max-height: 48px;
   width: auto;
   display: block;
   margin-bottom: 0.75rem;
 }
 
-/* SERVICE LINE IS PRIMARY */
 .hero-subtitle {
   font-size: 1.35rem;
   font-weight: 600;
@@ -121,14 +120,11 @@ p {
   z-index: 1000;
 }
 
-/* SMALL SQUARE LOGO */
 .nav-logo {
   height: 36px;
   width: auto;
-  display: block;
 }
 
-/* NAV LINKS */
 .top-nav a {
   text-decoration: none;
   font-weight: 500;
@@ -161,7 +157,7 @@ p {
 }
 
 /* =========================
-   SECTIONS
+   SECTIONS (SOFT GOLD)
    ========================= */
 
 .section {
@@ -169,19 +165,22 @@ p {
 }
 
 .section-soft {
-  background-color: #f9fafb;
+  background-color: var(--brand-gold-soft);
   padding: 2.5rem 2rem;
   border-radius: 16px;
+  border: 1px solid var(--brand-gold-border);
 }
 
 /* =========================
-   CARDS
+   CARDS (GOLD ACCENT)
    ========================= */
 
 .card {
   background-color: #ffffff;
   border-radius: 16px;
   padding: 1.6rem 1.8rem;
+
+  border: 1px solid var(--brand-gold-border);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 
   height: 100%;
