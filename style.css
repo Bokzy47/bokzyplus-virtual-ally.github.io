@@ -118,3 +118,17 @@ body {
 .section .hero-subtitle {
   display: block;
 }
+/* =========================
+   FORCE HERO SERVICE LINE BOLD + CENTER
+   ========================= */
+
+.hero-subtitle {
+  font-weight: 800 !important;   /* force bold */
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 920px;
+}
+
+.hero-subtitle * {
+  font-weight: 800 !important;
+}
