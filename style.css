@@ -10,23 +10,29 @@
 /* =========================
    BASE
    ========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: var(--brand-bg);
   color: var(--brand-dark);
 
-  max-width: 920px;
-  margin: 48px auto;
-  padding: 0 24px;
+  margin: 0;
+  padding: 100px 20px 60px; /* top padding prevents nav overlap */
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* =========================
-   TOP RIGHT NAV (FINAL)
+   TOP RIGHT NAV
    ========================= */
 .top-right-nav {
   position: fixed;
-  top: 24px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
 
   display: flex;
   align-items: center;
@@ -35,23 +41,29 @@ body {
   z-index: 9999;
 }
 
+/* Logo Fix */
 .top-nav-logo {
-  height: 36px;
+  width: 120px;
+  height: auto;
+  display: block;
 }
 
 /* Nav buttons */
 .nav-btn {
   padding: 10px 18px;
   border-radius: 999px;
-
   background: var(--brand-gold);
-  color: #1f1f1f;
+  color: var(--brand-dark);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  transition: 0.2s ease;
 }
 
-/* Primary highlight (Services) */
+.nav-btn:hover {
+  background: #e6b91f;
+}
+
 .nav-primary {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
 }
@@ -64,110 +76,123 @@ body {
   background-size: cover;
   background-position: center;
   min-height: 420px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 60px;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+.hero-subtitle {
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 900px;
 }
 
 /* =========================
    SECTIONS
    ========================= */
+.section {
+  margin-bottom: 60px;
+}
+
 .section-soft {
   background: rgba(244,196,48,0.18);
-  padding: 2.5rem;
-  border-radius: 18px;
+  padding: 40px 30px;
+  border-radius: 20px;
 }
 
+/* =========================
+   CARDS
+   ========================= */
 .card {
   background: #fff;
-  padding: 1.8rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+  max-width: 100%;
 }
 
+/* Grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 /* =========================
-   MOBILE
-   ========================= */
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .top-right-nav {
-    top: 16px;
-    right: 16px;
-    flex-wrap: wrap;
-  }
-}
-/* =========================
-   HERO SERVICE LINE FIX
-   ========================= */
-
-.hero-subtitle {
-  font-weight: 700;          /* make it bold */
-  text-align: center;        /* center text */
-  margin: 0 auto;            /* center block */
-  max-width: 900px;          /* prevent over-stretch */
-}
-
-.section .hero-subtitle {
-  display: block;
-}
-/* =========================
-   FORCE HERO SERVICE LINE BOLD + CENTER
-   ========================= */
-
-.hero-subtitle {
-  font-weight: 800 !important;   /* force bold */
-  text-align: center !important;
-  margin: 0 auto !important;
-  max-width: 920px;
-}
-
-.hero-subtitle * {
-  font-weight: 800 !important;
-}
-/* =========================
-   SOCIAL ICONS — BRAND STYLE
+   SOCIAL ICONS
    ========================= */
 .social-links {
   display: flex;
   gap: 14px;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .social-links a {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--brand-gold);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.social-links img {
-  width: 22px;
-  height: 22px;
-  color: #1f1f1f; /* uses currentColor from SVG */
+  transition: 0.2s ease;
 }
 
 .social-links a:hover {
   background: #e6b91f;
 }
-.social-links {
-  display: flex;
-  gap: 14px;
-  margin-top: 16px;
-}
 
 .social-links img {
   width: 22px;
   height: 22px;
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 120px 16px 40px;
+  }
+
+  .top-right-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .top-nav-logo {
+    width: 95px;
+  }
+
+  .nav-btn {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-soft {
+    padding: 25px 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .hero {
+    min-height: 300px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
 }
