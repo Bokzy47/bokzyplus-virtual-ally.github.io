@@ -43,10 +43,14 @@ body {
   z-index: 9999;
 }
 
+/* ✅ UPDATED LOGO STYLE (CIRCULAR + SMALLER) */
 .top-nav-logo {
-  width: 115px;
-  height: auto;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .nav-btn {
@@ -196,8 +200,10 @@ p {
     gap: 8px;
   }
 
+  /* ✅ Smaller circular logo for mobile */
   .top-nav-logo {
-    width: 90px;
+    width: 60px;
+    height: 60px;
   }
 
   .nav-btn {
